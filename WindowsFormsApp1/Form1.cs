@@ -214,7 +214,9 @@ namespace WindowsFormsApp1
 
             string name = $"Отчет_{node.Text}";
             var creator = new OpenOfficeTableCreator();
-            creator.CreateDictionaryTable(data, $"C:\\Users\\Денис\\Desktop\\{name}.docx");
+            string desctopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            creator.CreateDictionaryTable(data, $"{desctopPath}\\{name}.docx");
+            MessageBox.Show($"Отчет по {name} создан");
         }
 
         public Dictionary<string, string> ExtractQuantitiesFromTree(TreeNode rootNode)
